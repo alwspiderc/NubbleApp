@@ -5,7 +5,14 @@ import { Text } from './src/components/Text/Text';
 function App(): JSX.Element {
   return (
     <SafeAreaView>
-      <Text preset="paragraphCaption">NubbleApp</Text>
+      <Text preset="headingLarge" style={{ color: 'red' }}>
+        Coffstack
+      </Text>
+      <Text preset="paragraphMedium" bold>
+        Coffstack
+      </Text>
+      <Text preset="headingLarge">Coffstack</Text>
+      <Text preset="paragraphMedium">Coffstack</Text>
     </SafeAreaView>
   );
 }
