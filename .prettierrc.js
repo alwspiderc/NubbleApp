@@ -4,9 +4,8 @@ module.exports = {
   useTabs: false,
   arrowParens: 'avoid',
   bracketSameLine: true,
-  bracketSpacing: false,
-  singleQuote: true,
-  trailingComma: 'all',
-  parser: 'flow',
   bracketSpacing: true,
+  singleQuote: true,
+  // trailingCommas: 'none',
+  parser: 'flow',
 };
