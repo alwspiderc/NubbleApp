@@ -4,60 +4,38 @@ import { Text } from './src/components/Text/Text';
 import { ThemeProvider } from '@shopify/restyle';
 import { theme } from './src/theme/theme';
 import { Button } from './src/components/Button/Button';
+import { TextInput } from './src/components/TextInput/TextInput';
 import { Icon } from './src/components/Icon/Icon';
-import { Box } from './src/components/Box/Box';
 
 function App(): JSX.Element {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView>
-        <View>
-          <Text preset="headingLarge" italic>
-            Coffstack
+        <View style={{ paddingHorizontal: 24 }}>
+          <Text mb="s8" preset="headingLarge">
+            Olá!
           </Text>
-          <Box flexDirection="row">
-            <Icon name="chevronRight" color="successLight" size={50} />
-            <Icon name="heartFill" color="buttonPrimary" />
-            <Icon name="profile" size={50} />
-            <Icon name="profileFill" size={50} />
-            <Icon name="heart" size={50} />
-            <Icon name="bellOn" color="carrotSecondary" size={50} />
-          </Box>
-          <Box flexDirection="row">
-            <Icon name="newPost" size={50} />
-            <Icon name="camera" size={50} />
-            <Icon name="chat" size={50} />
-            <Icon name="chatOn" color="error" size={50} />
-            <Icon name="flashOff" size={50} />
-            <Icon name="flashOn" size={50} />
-          </Box>
+          <Text preset="paragraphLarge" mb="s40">
+            Digite seu e-mail e senha para entrar
+          </Text>
 
-          {/* <Button title="primary" marginBottom="s12" marginTop="s16" />
-          <Button disabled title="primary" marginBottom="s12" marginTop="s16" /> */}
-
-          {/* <Button
-            preset="outline"
-            title="outline"
-            marginBottom="s12"
-            marginTop="s16"
+          <TextInput
+            errorMessage="Mensagem de erro"
+            label="E-mail"
+            placeholder="Digite seu e-mail"
+            boxProps={{ mb: 's20' }}
           />
-
-          <Button
-            disabled
-            preset="outline"
-            title="outline"
-            marginBottom="s12"
-            marginTop="s16"
+          <TextInput
+            label="Senha"
+            placeholder="Digite sua senha"
+            rightComponent={<Icon name="eyeOn" />}
+            boxProps={{ mb: 's10' }}
           />
-
-          <Button title="primary" marginBottom="s12" marginTop="s16" loading />
-          <Button
-            disabled
-            title="primary"
-            marginBottom="s12"
-            marginTop="s16"
-            loading
-          /> */}
+          <Text color="primary" bold preset="paragraphSmall">
+            Esqueci minha senha
+          </Text>
+          <Button mt="s48" title="Entrar" />
+          <Button mt="s12" title="Criar uma conta" preset="outline" />
         </View>
       </SafeAreaView>
     </ThemeProvider>
