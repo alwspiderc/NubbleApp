@@ -1,12 +1,14 @@
 import React from 'react';
-import { Text } from '../../../components/Text/Text';
-import { Button } from '../../../components/Button/Button';
-import { Screen } from '../../../components/Screen/Screen';
+import {
+  Text,
+  Screen,
+  Button,
+  FormTextInput,
+  FormPasswordInput,
+} from '@components';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../routes/Routes';
+import { RootStackParamList } from '@routes';
 import { useForm } from 'react-hook-form';
-import { FormTextInput } from '../../../components/Form/FormTextInput';
-import { FormPasswordInput } from '../../../components/Form/FormPasswordInput';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema, LoginSchema } from './loginSchema';
 
@@ -21,7 +23,9 @@ export function LoginScreen({ navigation }: ScreenProps) {
     mode: 'onChange',
   });
 
-  function submitForm({ email, password }: LoginSchema) {}
+  function submitForm({ email, password }: LoginSchema) {
+    console.log(email + ' ' + password);
+  }
 
   function navigationToSignUpScreen() {
     navigation.navigate('SignUpScreen');
