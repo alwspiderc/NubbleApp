@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import {z} from 'zod';
 
 const userNameRegex = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/gim;
 
@@ -13,7 +13,7 @@ export const signUpSchema = z.object({
         .split(' ')
         .map(
           word =>
-            word.charAt(0).toUpperCase() + word.slice(1).toLocaleLowerCase()
+            word.charAt(0).toUpperCase() + word.slice(1).toLocaleLowerCase(),
         )
         .join(' ');
     }),
