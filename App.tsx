@@ -1,16 +1,18 @@
 import React from 'react';
 
-import { ThemeProvider } from '@shopify/restyle';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {ThemeProvider} from '@shopify/restyle';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-import { Router } from './src/routes/Routes';
-import { theme } from './src/theme/theme';
+import {theme} from '@theme';
+import {Router} from './src/routes/Routes';
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
         <Router />
+        {/* <LoginScreen /> */}
+        {/* <SignUpScreen /> */}
       </ThemeProvider>
     </SafeAreaProvider>
   );

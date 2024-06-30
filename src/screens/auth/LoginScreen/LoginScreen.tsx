@@ -1,23 +1,22 @@
 import React from 'react';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { useForm } from 'react-hook-form';
-
+import {useForm} from 'react-hook-form';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {
-  Text,
-  Screen,
   Button,
-  FormTextInput,
   FormPasswordInput,
+  FormTextInput,
+  Screen,
+  Text,
 } from '@components';
-import { RootStackParamList } from '@routes';
-
-import { loginSchema, LoginSchema } from './loginSchema';
+import {RootStackParamList} from '@routes';
+import {Alert} from 'react-native';
+import {LoginSchema, loginSchema} from './loginSchema';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
-export function LoginScreen({ navigation }: ScreenProps) {
-  const { control, formState, handleSubmit } = useForm<LoginSchema>({
+
+export function LoginScreen({navigation}: ScreenProps) {
+  const {control, formState, handleSubmit} = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
@@ -26,20 +25,22 @@ export function LoginScreen({ navigation }: ScreenProps) {
     mode: 'onChange',
   });
 
-  function submitForm({ email, password }: LoginSchema) {
-    console.log(email + ' ' + password);
+  function submitForm({email, password}: LoginSchema) {
+    Alert.alert(`Email: ${email} ${'\n'} Senha: ${password}`);
   }
 
-  function navigationToSignUpScreen() {
+  function navigateToSignUpScreen() {
     navigation.navigate('SignUpScreen');
   }
-  function navigationToForgotPasswordScreen() {
+
+  function navigateToForgotPasswordScreen() {
     navigation.navigate('ForgotPasswordScreen');
   }
+
   return (
     <Screen scrollable>
-      <Text mb="s8" preset="headingLarge">
-        Olá!
+      <Text marginBottom="s8" preset="headingLarge">
+        Olá
       </Text>
       <Text preset="paragraphLarge" mb="s40">
         Digite seu e-mail e senha para entrar
@@ -50,7 +51,7 @@ export function LoginScreen({ navigation }: ScreenProps) {
         name="email"
         label="E-mail"
         placeholder="Digite seu e-mail"
-        boxProps={{ mb: 's20' }}
+        boxProps={{mb: 's20'}}
       />
 
       <FormPasswordInput
@@ -58,29 +59,29 @@ export function LoginScreen({ navigation }: ScreenProps) {
         name="password"
         label="Senha"
         placeholder="Digite sua senha"
-        boxProps={{ mb: 's10' }}
+        boxProps={{mb: 's20'}}
       />
 
       <Text
-        onPress={navigationToForgotPasswordScreen}
+        onPress={navigateToForgotPasswordScreen}
         color="primary"
+        preset="paragraphSmall"
         bold
-        preset="paragraphSmall">
+        mt="s10">
         Esqueci minha senha
       </Text>
 
       <Button
         disabled={!formState.isValid}
+        onPress={handleSubmit(submitForm)}
         mt="s48"
         title="Entrar"
-        onPress={handleSubmit(submitForm)}
       />
-
       <Button
+        onPress={navigateToSignUpScreen}
+        preset="outline"
         mt="s12"
         title="Criar uma conta"
-        preset="outline"
-        onPress={navigationToSignUpScreen}
       />
     </Screen>
   );

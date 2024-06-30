@@ -1,16 +1,16 @@
+import {Button, Icon, Screen, Text} from '@components';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '@routes';
 import React from 'react';
-
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-
-import { Screen, Icon, Text, Button } from '@components';
-import { RootStackParamList } from '@routes';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SuccessScreen'>;
 
-export function SuccessScreen({ route, navigation }: ScreenProps) {
+export function SuccessScreen({route, navigation}: ScreenProps) {
   function goBackToBegin() {
+    // TODO: Navegar para tela de login
     navigation.goBack();
   }
+
   return (
     <Screen>
       <Icon {...route.params.icon} />
@@ -20,7 +20,7 @@ export function SuccessScreen({ route, navigation }: ScreenProps) {
       <Text preset="paragraphLarge" mt="s16">
         {route.params.description}
       </Text>
-      <Button onPress={goBackToBegin} title="Voltar ao início" mt="s40" />
+      <Button onPress={goBackToBegin} title="Voltar ao inicio" mt="s40" />
     </Screen>
   );
 }

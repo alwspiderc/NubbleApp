@@ -23,7 +23,7 @@ export function Button({
   loading,
   preset = 'primary',
   disabled,
-  ...touchableOpacityBox
+  ...touchableOpacityBoxProps
 }: ButtonProps) {
   const buttonPreset = buttonPresets[preset][disabled ? 'disabled' : 'default'];
   return (
@@ -35,7 +35,7 @@ export function Button({
       justifyContent="center"
       borderRadius="s16"
       {...buttonPreset.container}
-      {...touchableOpacityBox}>
+      {...touchableOpacityBoxProps}>
       {loading ? (
         <ActivityIndicator color={buttonPreset.content} />
       ) : (

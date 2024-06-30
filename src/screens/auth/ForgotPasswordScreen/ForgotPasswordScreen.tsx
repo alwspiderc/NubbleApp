@@ -1,13 +1,10 @@
 import React from 'react';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { useForm } from 'react-hook-form';
-
-import { Screen, Text, Button, FormTextInput } from '@components';
-import { useResetNavigationSuccess } from '@hooks';
-import { RootStackParamList } from '@routes';
-
+import {Button, FormTextInput, Screen, Text} from '@components';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '@routes';
+import {useResetNavigationSuccess} from '@hooks';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useForm} from 'react-hook-form';
 import {
   ForgotPasswordSchema,
   forgotPasswordSchema,
@@ -17,12 +14,10 @@ type ScreenProps = NativeStackScreenProps<
   RootStackParamList,
   'ForgotPasswordScreen'
 >;
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function ForgotPasswordScreen({ navigation }: ScreenProps) {
-  const { reset } = useResetNavigationSuccess();
-
-  const { control, formState, handleSubmit } = useForm<ForgotPasswordSchema>({
+export function ForgotPasswordScreen({navigation}: ScreenProps) {
+  const {reset} = useResetNavigationSuccess();
+  const {control, formState, handleSubmit} = useForm<ForgotPasswordSchema>({
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: {
       email: '',
@@ -32,10 +27,11 @@ export function ForgotPasswordScreen({ navigation }: ScreenProps) {
 
   function submitForm(values: ForgotPasswordSchema) {
     console.log(values);
+    //TODO: Submit form
     reset({
       title: `Enviamos as instruções ${'\n'}para seu e-mail`,
       description:
-        'Click no link enviado no seu e-mail para recuperar sua senha',
+        'Clique no link enviado no seu e-mail para recuperar sua senha',
       icon: {
         name: 'messageRound',
         color: 'primary',
@@ -56,8 +52,9 @@ export function ForgotPasswordScreen({ navigation }: ScreenProps) {
         name="email"
         label="E-mail"
         placeholder="Digite seu e-mail"
-        boxProps={{ mb: 's40' }}
+        boxProps={{mb: 's40'}}
       />
+
       <Button
         disabled={!formState.isValid}
         onPress={handleSubmit(submitForm)}
