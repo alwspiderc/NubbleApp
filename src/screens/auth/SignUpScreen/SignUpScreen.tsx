@@ -7,17 +7,15 @@ import {
   Screen,
   Text,
 } from '@components';
-import {RootStackParamList} from '@routes';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
+
 import {useResetNavigationSuccess} from '@hooks';
 import {useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {signUpSchema, SignUpSchema} from './signUpSchema';
-
-type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
+import {AuthScreenProps} from '@routes';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function SignUpScreen({navigation}: ScreenProps) {
+export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
   const {reset} = useResetNavigationSuccess();
 
   const {control, formState, handleSubmit} = useForm<SignUpSchema>({
@@ -33,14 +31,14 @@ export function SignUpScreen({navigation}: ScreenProps) {
 
   function submitForm(formValues: SignUpSchema) {
     console.log(formValues);
-    // reset({
-    //   title: 'Sua conta foi criada com sucesso!',
-    //   description: 'Agora é só fazer login na nossa plataforma',
-    //   icon: {
-    //     name: 'checkRound',
-    //     color: 'success',
-    //   },
-    // });
+    reset({
+      title: 'Sua conta foi criada com sucesso!',
+      description: 'Agora é só fazer login na nossa plataforma',
+      icon: {
+        name: 'checkRound',
+        color: 'success',
+      },
+    });
   }
   return (
     <Screen canGoBack scrollable>
@@ -71,14 +69,6 @@ export function SignUpScreen({navigation}: ScreenProps) {
         placeholder="Digite seu e-mail"
         boxProps={{mb: 's20'}}
       />
-
-      {/* <TextInput
-        label="Senha"
-        secureTextEntry
-        placeholder="Digite sua senha"
-        RightComponent={<Icon color="gray2" name="eyeOff" />}
-        boxProps={{ mb: 's48' }}
-      /> */}
 
       <FormPasswordInput
         control={control}
