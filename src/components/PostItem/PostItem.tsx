@@ -11,7 +11,7 @@ interface Props {
 
 export function PostItem({post}: Props) {
   return (
-    <Box mb="s24">
+    <Box pl="s24" mb="s24">
       <PostHeader author={post.author} />
       <PostImage imageURL={post.imageURL} />
       <PostActions
