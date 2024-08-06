@@ -561,7 +561,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.NubbleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.ester.NubbleApp;
 				PRODUCT_NAME = NubbleApp;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
