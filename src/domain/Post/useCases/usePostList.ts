@@ -30,7 +30,7 @@ export function usePostList() {
 
   async function fetchNextPage() {
     if (loading || !hasNextPage) {
-      true;
+      return;
     }
 
     try {
@@ -38,7 +38,7 @@ export function usePostList() {
       const {data, meta} = await postService.getList(page);
       setPostList(prev => [...prev, ...data]);
       if (meta.hasNextPage) {
-        setPage(page + 1);
+        setPage(prev => prev + 1);
       } else {
         setHasNextPage(false);
       }
@@ -50,7 +50,7 @@ export function usePostList() {
   }
 
   useEffect(() => {
-    // fetchData();
+    fetchInitialData();
   }, []);
 
   return {
