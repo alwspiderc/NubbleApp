@@ -7,15 +7,20 @@ export function usePostList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<boolean | null>(null);
   const [page, setPage] = useState(1);
+  const [hasNextPage, setHasNextPage] = useState(true);
 
   async function fetchInitialData() {
     try {
       setError(null);
       setLoading(true);
-      const list = await postService.getList(1);
-      setPostList(list);
-      // TODO: Validar se tem mais páginas
-      setPage(2);
+      const {data, meta} = await postService.getList(1);
+      setPostList(data);
+      if (meta.hasNextPage) {
+        setPage(2);
+        setHasNextPage(true);
+      } else {
+        setHasNextPage(false);
+      }
     } catch (err) {
       setError(true);
     } finally {
@@ -24,15 +29,19 @@ export function usePostList() {
   }
 
   async function fetchNextPage() {
-    if (loading) {
+    if (loading || !hasNextPage) {
       true;
     }
 
     try {
       setLoading(true);
-      const list = await postService.getList(page);
-      setPostList(prev => [...prev, ...list]);
-      setPage(page + 1);
+      const {data, meta} = await postService.getList(page);
+      setPostList(prev => [...prev, ...data]);
+      if (meta.hasNextPage) {
+        setPage(page + 1);
+      } else {
+        setHasNextPage(false);
+      }
     } catch (err) {
       setError(true);
     } finally {
