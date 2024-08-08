@@ -10,6 +10,7 @@ export function usePostList() {
 
   async function fetchData() {
     try {
+      setError(null);
       setLoading(true);
       const list = await postService.getList(page);
       setPostList(prev => [...prev, ...list]);
