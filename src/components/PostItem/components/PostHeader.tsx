@@ -1,8 +1,10 @@
 import React from 'react';
-import {Box} from '../../Box/Box';
 import {Image} from 'react-native';
-import {Text} from '../../Text/Text';
+
 import {Post} from '@domain';
+
+import {Box} from '../../Box/Box';
+import {Text} from '../../Text/Text';
 
 type Props = Pick<Post, 'author'>;
 

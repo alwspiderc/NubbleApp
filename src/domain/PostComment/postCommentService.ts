@@ -1,8 +1,9 @@
-import {Page} from '@types';
-import {PostComment} from './postCommentTypes';
-import {postCommentApi} from './postCommentApi';
 import {apiAdapter} from '@api';
+import {Page} from '@types';
+
 import {postCommentAdapter} from './postCommentAdapter';
+import {postCommentApi} from './postCommentApi';
+import {PostComment} from './postCommentTypes';
 
 const PER_PAGE = 10;
 async function getList(

@@ -1,3 +1,7 @@
+import React from 'react';
+
+import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
+
 import {
   Box,
   BoxProps,
@@ -7,12 +11,11 @@ import {
   TouchableOpacityBox,
   TouchableOpacityBoxProps,
 } from '@components';
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import React from 'react';
-import {mapScreenToProps} from './mapScreenToProps';
-import {AppTabBottomTabParamList} from './AppTabNavigator';
 import {useAppSafeArea} from '@hooks';
 import {$shadowProps} from '@theme';
+
+import {AppTabBottomTabParamList} from './AppTabNavigator';
+import {mapScreenToProps} from './mapScreenToProps';
 
 export function AppTabBar({state, descriptors, navigation}: BottomTabBarProps) {
   const {bottom} = useAppSafeArea();

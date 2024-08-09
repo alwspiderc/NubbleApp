@@ -1,14 +1,16 @@
 import React from 'react';
-import {Button, FormTextInput, Screen, Text} from '@components';
 
-import {useResetNavigationSuccess} from '@hooks';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm} from 'react-hook-form';
+import {AuthScreenProps} from 'src/routes/navigationType';
+
+import {Button, FormTextInput, Screen, Text} from '@components';
+import {useResetNavigationSuccess} from '@hooks';
+
 import {
   ForgotPasswordSchema,
   forgotPasswordSchema,
 } from './forgotPasswordSchema';
-import {AuthScreenProps} from 'src/routes/navigationType';
 
 export function ForgotPasswordScreen({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

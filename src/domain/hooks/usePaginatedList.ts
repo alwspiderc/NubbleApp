@@ -1,5 +1,6 @@
-import {Page} from '@types';
 import {useEffect, useState} from 'react';
+
+import {Page} from '@types';
 
 export function usePaginatedList<Data>(
   getList: (page: number) => Promise<Page<Data>>,

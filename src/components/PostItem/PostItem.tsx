@@ -1,10 +1,13 @@
 import React from 'react';
-import {Box} from '../Box/Box';
+
 import {Post} from '@domain';
-import {PostHeader} from './components/PostHeader';
-import {PostImage} from './components/PostImage';
+
+import {Box} from '../Box/Box';
+
 import {PostActions} from './components/PostActions';
 import {PostBottom} from './components/PostBottom';
+import {PostHeader} from './components/PostHeader';
+import {PostImage} from './components/PostImage';
 
 interface Props {
   post: Post;

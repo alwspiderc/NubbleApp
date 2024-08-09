@@ -1,5 +1,8 @@
 import React from 'react';
 
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useForm} from 'react-hook-form';
+
 import {
   Button,
   FormPasswordInput,
@@ -7,12 +10,10 @@ import {
   Screen,
   Text,
 } from '@components';
-
 import {useResetNavigationSuccess} from '@hooks';
-import {useForm} from 'react-hook-form';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {signUpSchema, SignUpSchema} from './signUpSchema';
 import {AuthScreenProps} from '@routes';
+
+import {signUpSchema, SignUpSchema} from './signUpSchema';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {

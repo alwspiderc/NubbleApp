@@ -1,7 +1,9 @@
 import React from 'react';
-import {Box, Text} from '@components';
+
 import {Post} from '@domain';
 import {useNavigation} from '@react-navigation/native';
+
+import {Box, Text} from '@components';
 
 type Props = Pick<Post, 'author' | 'text' | 'commentCount' | 'id'>;
 

@@ -1,4 +1,5 @@
 import {usePaginatedList} from '@domain';
+
 import {postCommentService} from '../postCommentService';
 
 export function usePostCommentList(postId: number) {

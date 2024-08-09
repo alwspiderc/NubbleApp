@@ -1,6 +1,9 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
+import {Alert} from 'react-native';
+
 import {zodResolver} from '@hookform/resolvers/zod';
+import {useForm} from 'react-hook-form';
+
 import {
   Button,
   FormPasswordInput,
@@ -8,9 +11,9 @@ import {
   Screen,
   Text,
 } from '@components';
-import {Alert} from 'react-native';
-import {LoginSchema, loginSchema} from './loginSchema';
 import {AuthScreenProps} from '@routes';
+
+import {LoginSchema, loginSchema} from './loginSchema';
 
 export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
   const {control, formState, handleSubmit} = useForm<LoginSchema>({
