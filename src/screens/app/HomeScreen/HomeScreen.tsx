@@ -6,14 +6,15 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native';
+
+import {Post, usePostList} from '@domain';
 import {useScrollToTop} from '@react-navigation/native';
 
 import {PostItem, Screen} from '@components';
 import {AppTabScreenProps} from '@routes';
-import {Post, usePostList} from '@domain';
 
-import {HomeHeader} from './components/HomeHeader';
 import {HomeEmpty} from './components/HomeEmpty';
+import {HomeHeader} from './components/HomeHeader';
 
 export function HomeScreen({}: AppTabScreenProps<'HomeScreen'>) {
   const {
@@ -37,7 +38,7 @@ export function HomeScreen({}: AppTabScreenProps<'HomeScreen'>) {
         ref={flatListRef}
         showsVerticalScrollIndicator={false}
         data={postList}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toString()}
         renderItem={renderItem}
         onEndReached={fetchNextPage}
         onEndReachedThreshold={0.1}
