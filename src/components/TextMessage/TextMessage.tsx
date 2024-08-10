@@ -45,7 +45,9 @@ export function TextMessage({
           style={[$textInputStyle, {color: colors.gray1}]}
           {...rnTextInputProps}
         />
-        <Pressable disabled={sendIsDisabled} onPress={() => onPressSend(value)}>
+        <Pressable
+          disabled={sendIsDisabled}
+          onPress={() => onPressSend(value || '')}>
           <Text color={sendIsDisabled ? 'gray2' : 'primary'} bold>
             Enviar
           </Text>
