@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Dimensions} from 'react-native';
 
@@ -15,7 +14,6 @@ const MAX_WIDTH = Dimensions.get('screen').width * 0.9;
 interface Props {
   toast: Toast;
 }
-
 export function ToastContent({toast}: Props) {
   const position: ToastPosition = toast?.position || 'top';
   const type: ToastType = toast?.type || 'success';
@@ -31,14 +29,18 @@ export function ToastContent({toast}: Props) {
 }
 
 const mapTypeToIcon: Record<ToastType, IconProps> = {
-  success: {color: 'success', name: 'checkRound'},
-  error: {color: 'error', name: 'errorRound'},
+  success: {
+    color: 'success',
+    name: 'checkRound',
+  },
+  error: {
+    color: 'error',
+    name: 'errorRound',
+  },
 };
 
 const $boxStyle: BoxProps = {
-  position: 'absolute',
   backgroundColor: 'background',
-  alignSelf: 'center',
   alignItems: 'center',
   padding: 's16',
   borderRadius: 's16',
